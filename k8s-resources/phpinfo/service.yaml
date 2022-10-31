@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: phpinfo
+  name: phpinfo
+spec:
+  clusterIP: 10.43.12.123
+  clusterIPs:
+  - 10.43.12.123
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: 60080-80
+    port: 60080
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: phpinfo
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpinfo
+  labels:
+    app: phpinfo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: phpinfo
+  template:
+    metadata:
+      labels:
+        app: phpinfo
+    spec:
+      containers:
+      - name: phpinfo
+        image: jasoncallaway/phpinfo:latest
+        ports:
+        - containerPort: 80
+        env:
+          - name: release-date
+            valueFrom:
+              configMapKeyRef:
+                name: release-date
+                key: date
+          - name: db-user
+            valueFrom:
+              configMapKeyRef:
+                name: database-connection
+                key: username
+          - name: db-pass
+            valueFrom:
+              configMapKeyRef:
+                name: database-connection
+                key: password

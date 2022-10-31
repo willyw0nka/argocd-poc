@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: application-hub
+spec:
+  destination:
+    name: in-cluster
+    namespace: ''
+    server: ''
+  source:
+    path: 'apps/'
+    repoURL: 'https://github.com/willyw0nka/argocd-poc.git'
+    targetRevision: HEAD
+    directory:
+      recurse: true
+  project: k3s-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false

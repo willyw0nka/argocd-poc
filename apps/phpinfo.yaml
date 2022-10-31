@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: phpinfo
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: application-hub
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: k8s-resources/phpinfo
+    repoURL: https://github.com/willyw0nka/argocd-poc.git
+    targetRevision: HEAD
