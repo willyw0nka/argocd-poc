@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  date: "2022-10-26"
+metadata:
+  name: release-date
+  namespace: application-hub
