@@ -14,3 +14,7 @@ spec:
     path: k8s-resources/phpinfo
     repoURL: https://github.com/willyw0nka/argocd-poc.git
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
