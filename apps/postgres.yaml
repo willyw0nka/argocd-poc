@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: application-hub
     server: https://kubernetes.default.svc
-  project: default
+  project: k3s-dev
   source:
     path: k8s-resources/postgres
     repoURL: https://github.com/willyw0nka/argocd-poc.git
