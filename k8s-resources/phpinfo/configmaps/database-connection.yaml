@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 data:
   username: dbuser
-  password: passwordXD
+  password: pass123
 metadata:
   name: database-connection
   namespace: application-hub
